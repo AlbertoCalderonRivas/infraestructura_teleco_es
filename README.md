@@ -11,8 +11,8 @@ Herramienta de visualización cartográfica interactiva desarrollada en el conte
 |------|------|--------|
 | Puntos de intercambio (IXPs) | Puntos | PeeringDB API |
 | Nodos y enlaces guifi.net | Puntos / Líneas | guifi.net GML/CNML |
-| Cobertura 4G | Polígonos | CNMC vía ArcGIS |
-| Cobertura 5G | Polígonos | CNMC vía ArcGIS |
+| Cobertura 4G | Polígonos | SETELECO vía ArcGIS |
+| Cobertura 5G | Polígonos | SETELECO vía ArcGIS |
 | Antenas (celdas LTE/NR) | Puntos (PMTiles) | OpenCelliD |
 | Edificios 3D | Vector tiles | MapTiler |
 | Terreno 3D | Raster DEM | MapTiler |
@@ -35,7 +35,9 @@ Herramienta de visualización cartográfica interactiva desarrollada en el conte
 Los datos de nodos y enlaces se obtienen desde los endpoints GML y CNML de la API de guifi.net. Scripts de Python transforman estos formatos a GeoJSON. Se generan dos variantes: una para representación 2D y otra para 3D con altura de antena.
 
 ### Cobertura 4G / 5G
-Datos extraídos del visor oficial de cobertura de la CNMC, accediendo directamente a los servicios ArcGIS subyacentes. Se cargan dinámicamente por bbox según la vista actual del mapa.
+Datos extraídos del visor oficial de cobertura de la Secretaría de Estado de Telecomunicaciones e Infraestructuras Digitales (SETELECO), accediendo directamente a los servicios ArcGIS subyacentes (`services9.arcgis.com/b5sc9d51LIwFoyfR`). Se cargan dinámicamente por bbox según la vista actual del mapa.
+
+> **Nota sobre licencia:** Se ha contactado directamente con SETELECO para confirmar las condiciones de uso y reutilización de estos datos en el contexto de investigación académica sin ánimo de lucro. Pendiente de respuesta.
 
 ### OpenCelliD (antenas)
 Descarga de los CSV de antenas para España. Conversión a GeoJSON mediante script Python y posterior generación de PMTiles con Tippecanoe, con rango de zoom 8–16.
@@ -50,7 +52,7 @@ tippecanoe -o antenas.pmtiles -z16 -Z8 -l antenas \
 ## Instalación
 
 1. Clona el repositorio
-2. Copia `js/config.example.js` → `js/config.js` y añade tu API key de MapTiler
+2. en `js/keis.js` añade tu API key de MapTiler
 3. Sirve el proyecto desde un servidor local (necesario para PMTiles)
 
 ```bash
@@ -69,7 +71,7 @@ python -m http.server 8000
 | [PeeringDB](https://www.peeringdb.com/) | CC BY-SA 4.0 |
 | [guifi.net](https://guifi.net/) | CXSC (Comuns de Xarxes Sense Cables) |
 | [OpenCelliD](https://www.opencellid.org/) | CC BY-SA 4.0 |
-| [CNMC – Cobertura móvil](https://www.cnmc.es/) | Datos abiertos (verificar condiciones) |
+| [SETELECO – Cobertura móvil 4G/5G](https://avance.digital.gob.es/banda-ancha/cobertura/) | Pendiente de confirmación — datos públicos del Ministerio para la Transformación Digital |
 | [MapTiler](https://www.maptiler.com/) | Licencia comercial |
 
 ---

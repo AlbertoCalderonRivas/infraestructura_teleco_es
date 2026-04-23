@@ -61,7 +61,7 @@ a:visited{
     
 }
 
-.botones {
+#menuCapas {
     margin: 0;
     position: absolute;
     top: 10px;
@@ -74,6 +74,7 @@ a:visited{
     border: solid;
     border-color: rgb(211, 154, 247);
     border-width: 1px;
+    border-radius: 4px;
     font-family: 'Ubuntu Mono', monospace;
     font-weight: lighter;
     font-size: 0.6em;
@@ -90,30 +91,41 @@ a:visited{
 }
 
 
-.botones::-webkit-scrollbar {
+.botones {
+    transform: scaleX(0%);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    
+}
+
+.botones.visible {
+    transform: scaleX(100%);
+}
+
+#menuCapas::-webkit-scrollbar {
     width: 6px;
 }
 
-.botones::-webkit-scrollbar-track {
+#menuCapas::-webkit-scrollbar-track {
     background: #050010;
     border-radius: 3px;
 }
 
-.botones::-webkit-scrollbar-thumb {
+#menuCapas::-webkit-scrollbar-thumb {
     background: rgb(211, 154, 247);
     border-radius: 3px;
 }
 
-.botones::-webkit-scrollbar-thumb:hover {
+#menuCapas::-webkit-scrollbar-thumb:hover {
     background: rgb(158, 15, 206);
 }
 
-.botones details {
+#menuCapas details {
     width: 100%;
 
 }
 
-.botones details summary {
+#menuCapas details summary {
     cursor: pointer;
     outline: none;
     user-select: none;
@@ -124,14 +136,14 @@ a:visited{
     font-size: 1.5em;
 }
 
-.botones h3 {
+#menuCapas h3 {
     margin: 5px 0 0 0;
     padding: 0;
     inline-size: none;
     color: #A2A5FF
 }
 
-.botones h4 {
+#menuCapas h4 {
     margin: 0;
     padding: 0;
     inline-size: none;
@@ -139,7 +151,7 @@ a:visited{
 }
 
 
-.botones button {
+#menuCapas button {
     background-color: #050010;
     margin:5px 0px;
     border: solid;
@@ -153,12 +165,50 @@ a:visited{
     transition: background-color 0.3s, color 0.3s;
 }
 
-.botones button:hover {
+#menuCapas button:hover {
     background-color: rgb(211, 154, 247);
     color: #050010;
+    
 }
 
-.botones button:active {
+#menuCapas button:active {
     background-color: rgb(158, 15, 206);
     color: #050010;
 }
+
+.layer-button{
+    position: absolute;
+    margin: 10px;
+    z-index: 1000;
+    height: 29px;
+    width: 29px;
+    border: 1px solid rgb(211, 154, 247);
+    border-radius: 4px;
+    background: #050010;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Ubuntu Mono', monospace;
+    color: rgb(203, 203, 203);
+    font-size: 1.3em;
+    font-weight: 900;
+    display: flex;
+    cursor: pointer;
+    transition: all 0.3s;
+
+}
+
+.layer-button:hover{
+    background-color: rgb(211, 154, 247);
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+
+}
+
+.layer-button.visible {
+    border-color: #00000000;
+    background: #00000000;
+    font-size:0.9em;
+    transition: all 0.3s;
+}
+
+

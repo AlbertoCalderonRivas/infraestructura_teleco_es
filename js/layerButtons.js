@@ -1,6 +1,21 @@
-// Lista de capas que tendrán botón de toggle
-
 function inicializarBotones() {
+  // botón para mostrar/ocultar gestor de capas
+
+  const botonCapas = document.getElementById("layer-button");
+  const menuCapas = document.getElementById("menuCapas");
+  let estado = false;
+  if (!botonCapas) {
+    console.warn(`No se encontró botón con id "${idCapa}"`);
+    return;
+  }
+  botonCapas.addEventListener("click", () => {
+    estado = !estado;
+    botonCapas.innerHTML = estado ? "X" : "&#10855;";
+    menuCapas.classList.toggle("visible");
+    botonCapas.classList.toggle("visible");
+  });
+
+  // Lista de capas que tendrán botón de toggle
   const capas = [
     "edificios-3d",
     "hillshade",

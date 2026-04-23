@@ -1,0 +1,64 @@
+/* Popup */
+.maplibregl-popup-content {
+    background: #151020;
+    color: #ffffff;
+    border: 1px solid rgb(211, 154, 247);
+    border-radius: 4px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.maplibregl-popup-tip {
+    border-top-color: rgb(211, 154, 247); /* la flechita */
+}
+
+/* Controles (brújula, escala) */
+
+.maplibregl-ctrl-scale {
+  background-color: #050010;
+  border: 1px solid rgb(211, 154, 247);
+  box-sizing: border-box;
+  color: #ffffff;
+  font-size: 10px;
+  padding: 0 5px;
+  white-space: nowrap;
+}
+
+.maplibregl-ctrl.maplibregl-ctrl-attrib {
+  background-color: #050010;
+  color: #fff;
+
+}
+
+.maplibregl-ctrl-attrib-button:focus,
+.maplibregl-ctrl-group button:focus {
+    
+  box-shadow: 0 0 0px 1px rgb(44, 101, 8);/*inverted (para poder invertir el icono)*/
+}
+
+.maplibregl-ctrl-group {
+    background: #050010;
+    border: 1px solid rgb(211, 154, 247);
+}
+
+.maplibregl-ctrl-attrib-button {
+    filter: invert(1);
+}
+
+.maplibregl-ctrl button {
+    filter: invert(1); /* invierte los iconos a blanco */
+}
+
+.maplibregl-canvas-container.maplibregl-interactive:active,
+.maplibregl-ctrl-group button.maplibregl-ctrl-compass:active {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="5" height="5"><rect width="5" height="5" fill="magenta"/></svg>') 0 0, auto;
+
+}
+
+.maplibregl-canvas-container.maplibregl-interactive,
+.maplibregl-ctrl-group button.maplibregl-ctrl-compass {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="5" height="5"><rect width="5" height="5" fill="white"/></svg>') 0 0, auto;
+
+}
+
+
+

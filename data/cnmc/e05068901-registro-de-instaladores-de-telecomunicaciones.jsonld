@@ -1,0 +1,356 @@
+{
+  "@context": {
+    "adms": "http://www.w3.org/ns/adms#",
+    "brick": "https://brickschema.org/schema/Brick#",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcam": "http://purl.org/dc/dcam/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcatap": "http://data.europa.eu/r5r/",
+    "dcmitype": "http://purl.org/dc/dcmitype/",
+    "dct": "http://purl.org/dc/terms/",
+    "doap": "http://usefulinc.com/ns/doap#",
+    "eli": "http://data.europa.eu/eli/ontology#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "geo": "http://www.opengis.net/ont/geosparql#",
+    "locn": "http://www.w3.org/ns/locn#",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "org": "http://www.w3.org/ns/org#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "prof": "http://www.w3.org/ns/dx/prof/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "qb": "http://purl.org/linked-data/cube#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schema1": "http://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "sosa": "http://www.w3.org/ns/sosa/",
+    "spdx": "http://spdx.org/rdf/terms#",
+    "ssn": "http://www.w3.org/ns/ssn/",
+    "time": "http://www.w3.org/2006/time#",
+    "vann": "http://purl.org/vocab/vann/",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "voaf": "http://purl.org/vocommons/voaf#",
+    "void": "http://rdfs.org/ns/void#",
+    "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "https://datos.gob.es/catalogo/e05068901-registro-de-instaladores-de-telecomunicaciones/resource/cbe8de93-d693-43cb-b2da-01ca9b433214",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://avancedigital.gob.es/RegistroInstaladores/Modelos/Empresas%20instaladoras/Instaladores.csv"
+      },
+      "dct:format": {
+        "@id": "https://datos.gob.es/catalogo/e05068901-registro-de-instaladores-de-telecomunicaciones/resource/cbe8de93-d693-43cb-b2da-01ca9b433214/format"
+      },
+      "dct:identifier": {
+        "@type": "xsd:anyURI",
+        "@value": "https://sede.minetur.gob.es/catalogo/registro-instaladores/CSV"
+      },
+      "dct:license": {
+        "@id": "https://sede.minetur.gob.es/es-ES/Paginas/aviso.aspx#Reutilizacion"
+      },
+      "dct:title": [
+        {
+          "@language": "ca",
+          "@value": "Registre d'INSTAL · LADORS telecomunicacions"
+        },
+        {
+          "@language": "gl",
+          "@value": "Rexistro de instaladores de telecomunicacións"
+        },
+        {
+          "@language": "eu",
+          "@value": "Registro Telekomunikazio Instalatzaileen"
+        },
+        {
+          "@language": "es",
+          "@value": "Registro de instaladores de telecomunicaciones"
+        },
+        {
+          "@language": "en",
+          "@value": "Registration of telecommunications instaladores"
+        }
+      ]
+    },
+    {
+      "@id": "https://datos.gob.es/catalogo/e05068901-registro-de-instaladores-de-telecomunicaciones/resource/cbe8de93-d693-43cb-b2da-01ca9b433214/format",
+      "@type": "dct:IMT",
+      "rdf:value": "text/csv",
+      "rdfs:label": "CSV"
+    },
+    {
+      "@id": "https://datos.gob.es/catalogo/e05068901-registro-de-instaladores-de-telecomunicaciones/PeriodOfTime-1",
+      "@type": "dct:PeriodOfTime",
+      "dcat:startDate": {
+        "@type": "xsd:dateTime",
+        "@value": "1999-10-26T00:00:00+02:00"
+      }
+    },
+    {
+      "@id": "https://datos.gob.es/catalogo/e05068901-registro-de-instaladores-de-telecomunicaciones/resource/da3b29e7-4aac-4007-b4db-f3d4e7b875a7/format",
+      "@type": "dct:IMT",
+      "rdf:value": "text/html",
+      "rdfs:label": "HTML"
+    },
+    {
+      "@id": "https://datos.gob.es/catalogo/e05068901-registro-de-instaladores-de-telecomunicaciones/resource/11df79b3-f09e-47fa-a3c7-ba606b800039",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://avancedigital.gob.es/RegistroInstaladores/Modelos/Empresas%20instaladoras/Instaladores.xlsx"
+      },
+      "dct:format": {
+        "@id": "https://datos.gob.es/catalogo/e05068901-registro-de-instaladores-de-telecomunicaciones/resource/11df79b3-f09e-47fa-a3c7-ba606b800039/format"
+      },
+      "dct:identifier": {
+        "@type": "xsd:anyURI",
+        "@value": "https://sede.minetur.gob.es/catalogo/registro-instaladores/XLSX"
+      },
+      "dct:license": {
+        "@id": "https://sede.minetur.gob.es/es-ES/Paginas/aviso.aspx#Reutilizacion"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "Registration of telecommunications instaladores"
+        },
+        {
+          "@language": "gl",
+          "@value": "Rexistro de instaladores de telecomunicacións"
+        },
+        {
+          "@language": "ca",
+          "@value": "Registre d'INSTAL · LADORS telecomunicacions"
+        },
+        {
+          "@language": "eu",
+          "@value": "Registro Telekomunikazio Instalatzaileen"
+        },
+        {
+          "@language": "es",
+          "@value": "Registro de instaladores de telecomunicaciones"
+        }
+      ]
+    },
+    {
+      "@id": "https://datos.gob.es/catalogo/e05068901-registro-de-instaladores-de-telecomunicaciones/resource/11df79b3-f09e-47fa-a3c7-ba606b800039/format",
+      "@type": "dct:IMT",
+      "rdf:value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "rdfs:label": "XLSX"
+    },
+    {
+      "@id": "https://datos.gob.es/catalogo/e05068901-registro-de-instaladores-de-telecomunicaciones/DurationDescription",
+      "@type": "time:DurationDescription",
+      "time:days": {
+        "@type": "xsd:decimal",
+        "@value": "1"
+      }
+    },
+    {
+      "@id": "https://datos.gob.es/catalogo/e05068901-registro-de-instaladores-de-telecomunicaciones/resource/da3b29e7-4aac-4007-b4db-f3d4e7b875a7",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://avancedigital.gob.es/RegistroInstaladores/Paginas/ConsultaInstaladores.aspx"
+      },
+      "dct:format": {
+        "@id": "https://datos.gob.es/catalogo/e05068901-registro-de-instaladores-de-telecomunicaciones/resource/da3b29e7-4aac-4007-b4db-f3d4e7b875a7/format"
+      },
+      "dct:identifier": {
+        "@type": "xsd:anyURI",
+        "@value": "https://sede.minetur.gob.es/catalogo/registro-instaladores/HTML"
+      },
+      "dct:license": {
+        "@id": "https://sede.minetur.gob.es/es-ES/Paginas/aviso.aspx#Reutilizacion"
+      },
+      "dct:title": [
+        {
+          "@language": "gl",
+          "@value": "Rexistro de instaladores de telecomunicacións"
+        },
+        {
+          "@language": "ca",
+          "@value": "Registre d'INSTAL · LADORS telecomunicacions"
+        },
+        {
+          "@language": "eu",
+          "@value": "Registro Telekomunikazio Instalatzaileen"
+        },
+        {
+          "@language": "es",
+          "@value": "Registro de instaladores de telecomunicaciones"
+        },
+        {
+          "@language": "en",
+          "@value": "Registration of telecommunications instaladores"
+        }
+      ]
+    },
+    {
+      "@id": "https://datos.gob.es/catalogo/e05068901-registro-de-instaladores-de-telecomunicaciones/record",
+      "@type": "dcat:CatalogRecord",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2020-12-30T07:57:16.350101+01:00"
+      },
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2021-10-28T13:13:27.217556+02:00"
+      },
+      "foaf:primaryTopic": {
+        "@id": "https://datos.gob.es/catalogo/e05068901-registro-de-instaladores-de-telecomunicaciones"
+      }
+    },
+    {
+      "@id": "https://datos.gob.es/catalogo/e05068901-registro-de-instaladores-de-telecomunicaciones/Frequency",
+      "@type": "dct:Frequency",
+      "rdf:value": {
+        "@id": "https://datos.gob.es/catalogo/e05068901-registro-de-instaladores-de-telecomunicaciones/DurationDescription"
+      }
+    },
+    {
+      "@id": "http://datos.gob.es/recurso/sector-publico/org/Organismo/E05068901",
+      "@type": "foaf:Agent",
+      "dct:identifier": "E05068901",
+      "foaf:name": {
+        "@language": "es",
+        "@value": "Ministerio de Asuntos Económicos y Transformación Digital"
+      }
+    },
+    {
+      "@id": "https://datos.gob.es/catalogo/e05068901-registro-de-instaladores-de-telecomunicaciones",
+      "@type": "dcat:Dataset",
+      "dcat:distribution": [
+        {
+          "@id": "https://datos.gob.es/catalogo/e05068901-registro-de-instaladores-de-telecomunicaciones/resource/da3b29e7-4aac-4007-b4db-f3d4e7b875a7"
+        },
+        {
+          "@id": "https://datos.gob.es/catalogo/e05068901-registro-de-instaladores-de-telecomunicaciones/resource/cbe8de93-d693-43cb-b2da-01ca9b433214"
+        },
+        {
+          "@id": "https://datos.gob.es/catalogo/e05068901-registro-de-instaladores-de-telecomunicaciones/resource/11df79b3-f09e-47fa-a3c7-ba606b800039"
+        }
+      ],
+      "dcat:keyword": [
+        {
+          "@language": "es",
+          "@value": "telecomunicaciones"
+        },
+        {
+          "@language": "es",
+          "@value": "registros"
+        },
+        {
+          "@language": "es",
+          "@value": "television_digital"
+        },
+        {
+          "@language": "es",
+          "@value": "antenas"
+        },
+        {
+          "@language": "es",
+          "@value": "infraestructuras_teleco"
+        }
+      ],
+      "dcat:theme": [
+        {
+          "@id": "http://datos.gob.es/kos/sector-publico/sector/ciencia-tecnologia"
+        },
+        {
+          "@id": "http://datos.gob.es/kos/sector-publico/sector/urbanismo-infraestructuras"
+        },
+        {
+          "@id": "http://datos.gob.es/kos/sector-publico/sector/industria"
+        }
+      ],
+      "dct:accrualPeriodicity": {
+        "@id": "https://datos.gob.es/catalogo/e05068901-registro-de-instaladores-de-telecomunicaciones/Frequency"
+      },
+      "dct:conformsTo": {
+        "@id": "http://www.boe.es/boe/dias/2010/05/05/pdfs/BOE-A-2010-7133.pdf"
+      },
+      "dct:description": [
+        {
+          "@language": "eu",
+          "@value": "Harremana telekomunikazio enpresa instalatzaile indarrean."
+        },
+        {
+          "@language": "en",
+          "@value": "Relationship companies telecommunication installers force."
+        },
+        {
+          "@language": "ca",
+          "@value": "Relacion d'empreses instal · ladores de telecomunicacions vigents."
+        },
+        {
+          "@language": "es",
+          "@value": "Relación de empresas Instaladoras de telecomunicaciones vigentes."
+        },
+        {
+          "@language": "gl",
+          "@value": "Empresas de relación instaladores de telecomunicacións vigor."
+        }
+      ],
+      "dct:identifier": "http://sede.minetur.gob.es/catalogo/registro-instaladores",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2013-04-29T00:00:00+02:00"
+      },
+      "dct:language": [
+        {
+          "@id": "http://publications.europa.eu/resource/authority/language/SPA"
+        },
+        {
+          "@id": "http://publications.europa.eu/resource/authority/language/CAT"
+        },
+        {
+          "@id": "http://publications.europa.eu/resource/authority/language/GLG"
+        },
+        {
+          "@id": "http://publications.europa.eu/resource/authority/language/EUS"
+        },
+        {
+          "@id": "http://publications.europa.eu/resource/authority/language/ENG"
+        }
+      ],
+      "dct:publisher": {
+        "@id": "http://datos.gob.es/recurso/sector-publico/org/Organismo/E05068901"
+      },
+      "dct:references": {
+        "@id": "http://www.minetad.gob.es/telecomunicaciones/RegistroInstaladores/Paginas/index.aspx"
+      },
+      "dct:spatial": {
+        "@id": "http://datos.gob.es/recurso/sector-publico/territorio/Pais/España"
+      },
+      "dct:temporal": {
+        "@id": "https://datos.gob.es/catalogo/e05068901-registro-de-instaladores-de-telecomunicaciones/PeriodOfTime-1"
+      },
+      "dct:title": [
+        {
+          "@language": "gl",
+          "@value": "Instaladores de telecomunicacións do rexistro"
+        },
+        {
+          "@language": "en",
+          "@value": "Registration telecommunications installers"
+        },
+        {
+          "@language": "ca",
+          "@value": "Registre d'instal · ladors de telecomunicacions"
+        },
+        {
+          "@language": "es",
+          "@value": "Registro de instaladores de telecomunicaciones"
+        },
+        {
+          "@language": "eu",
+          "@value": "Izen-ematea telekomunikazioko instalatzaile"
+        }
+      ]
+    }
+  ]
+}

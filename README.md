@@ -14,6 +14,7 @@ Herramienta de visualización cartográfica interactiva desarrollada en el conte
 | Cobertura 4G | Polígonos | SETELECO vía ArcGIS |
 | Cobertura 5G | Polígonos | SETELECO vía ArcGIS |
 | Antenas (celdas LTE/NR) | Puntos (PMTiles) | OpenCelliD |
+| Cables submarinos | Líneas | TeleGeography – Submarine Cable Map |
 | Edificios 3D | Vector tiles | MapTiler |
 | Terreno 3D | Raster DEM | MapTiler |
 
@@ -24,7 +25,7 @@ Herramienta de visualización cartográfica interactiva desarrollada en el conte
 - **[MapLibre GL JS](https://maplibre.org/)** — renderizado de mapas vectoriales
 - **[PMTiles](https://protomaps.com/docs/pmtiles)** — formato de tiles locales sin servidor
 - **[Tippecanoe](https://github.com/felt/tippecanoe)** — conversión GeoJSON → PMTiles
-- **Python** — procesado y transformación de datos
+- **[GeoPandas](https://geopandas.org/) + [Shapely](https://shapely.readthedocs.io/)** — procesado y filtrado espacial de datos
 - **MapTiler** — tiles base, edificios 3D y terreno
 
 ---
@@ -46,6 +47,14 @@ Descarga de los CSV de antenas para España. Conversión a GeoJSON mediante scri
 tippecanoe -o antenas.pmtiles -z16 -Z8 -l antenas \
   --no-tile-size-limit --no-feature-limit antenas_es.geojson
 ```
+### Cables submarinos
+Los datos de trazado de cables submarinos proceden del dataset público de [Submarine Cable Map](https://www.submarinecablemap.com/) (TeleGeography), distribuido en formato GeoJSON. Se descarga manualmente y se filtra para incluir únicamente los cables cuya geometría intersecta con el territorio español con un script de Python.
+ 
+> **Nota sobre licencia:** TeleGeography no documenta explícitamente los términos de uso de su dataset público. Los datos se utilizan en este proyecto exclusivamente con fines de investigación académica sin ánimo de lucro, con atribución explícita a la fuente.
+
+## Límite territorial de referencia
+ 
+Para operaciones de filtrado espacial (recorte de datasets internacionales al territorio español) se utiliza la capa de **Unidades Administrativas de primer orden** del IGN, descargable desde el [Centro de Descargas del CNIG](https://centrodedescargas.cnig.es/). Esta capa cubre el territorio nacional completo en el sistema de referencia ETRS89 (EPSG:4258), conforme a la directiva INSPIRE.
 
 ---
 
@@ -60,9 +69,12 @@ tippecanoe -o antenas.pmtiles -z16 -Z8 -l antenas \
 python -m http.server 8000
 ```
 
-> Los archivos GeoJSON de gran tamaño no están incluidos en el repositorio. Ver sección de fuentes para obtenerlos.
 
 ---
+
+## Documentación
+
+[Arquitectura de proyecto](./documentation/ARCHITECTURE.md)
 
 ## Fuentes y licencias
 
@@ -72,6 +84,8 @@ python -m http.server 8000
 | [guifi.net](https://guifi.net/) | CXSC (Comuns de Xarxes Sense Cables) |
 | [OpenCelliD](https://www.opencellid.org/) | CC BY-SA 4.0 |
 | [SETELECO – Cobertura móvil 4G/5G](https://avance.digital.gob.es/banda-ancha/cobertura/) | Pendiente de confirmación — datos públicos del Ministerio para la Transformación Digital |
+| [TeleGeography – Submarine Cable Map](https://www.submarinecablemap.com/) | Pendiente de confirmación — uso académico sin ánimo de lucro, con atribución |
+| [IGN – Unidades Administrativas](https://centrodedescargas.cnig.es/) | Reutilización de información del sector público (Real Decreto 1495/2011) |
 | [MapTiler](https://www.maptiler.com/) | Licencia comercial |
 
 ---
@@ -83,3 +97,5 @@ Proyecto desarrollado como parte de una tesis doctoral en Arquitectura. El enfoq
 ---
 
 *Proyecto sin ánimo de lucro. Uso exclusivamente académico.*
+**Autoría**: Alberto Calderón Rivas
+**web**: [calde-core](https://www.calde-core.com)

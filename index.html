@@ -22,82 +22,89 @@
         <h4>__ según propiedad __</h4>
         
         <h3>__  BASE __</h3>
-        <details open>
-          <summary role="heading" aria-level="1">-- terreno --</summary>
+        <details>
+          <summary role="heading" aria-level="1">terreno</summary>
           <button id="hillshade">3D hills</button>
           <button id="edificios-3d">3D buildings</button>
         </details>
         <h3>__ PÚBLICA __</h3>
          <h4>____ puntos de intercambio ____</h4>
         <details open>
-          <summary role="heading" aria-level="1">-- IXPs --</summary>
+          <summary role="heading" aria-level="1">puntos neutros</summary>
           <button id="ixps">IXPs</button>
         </details>
         <h3>__ COMUNITARIA __</h3>
         <details open>
-          <summary role="heading" aria-level="1">-- guifi.net --</summary>
+          <summary role="heading" aria-level="1">guifi.net</summary>
           <button id="guifi_links">2D links</button>
           <button id="guifi_nodos_2d">2D nodes</button>
           <button id="guifi_nodos_3d">3D nodes</button>
         </details>
         <h3>__ PRIVADA __</h3>
-         <h4>__ por operadora __</h4>
+        <h4>____ infraestructura cables ____</h4>
         <details open>
-          <summary role="heading" aria-level="1">-- todas --</summary>
-          <button id="cobertura_5g">cobertura 5G</button>
-          <button id="cobertura_4g">cobertura4G</button>
+          <summary role="heading" aria-level="1">cables submarinos</summary>
+          <button id="cables_sub">mundiales</button>
+          <button id="cables_sub_spain">nacionales</button>
         </details>
-
+         <h4>____  infraestructura móvil ____</h4>
+        <details open>
+          <summary role="heading" aria-level="1">cobertura agregada</summary>
+          <button id="cobertura_5g">cobertura 5G</button>
+          <button id="cobertura_4g">cobertura 4G</button>
+        </details>
         <details>
-          <summary role="heading" aria-level="1">-- telefónica --</summary>
+          <summary role="heading" aria-level="1">telefónica</summary>
           <button id="Telefonica_LTE">antenas LTE (4G)</button>
           <button id="Telefonica_NR">antenas NR (5G)</button>
           <button id="cobertura_5g_telefonica">cobertura 5G</button>
           <button id="cobertura_4g_telefonica">cobertura 4G</button>
         </details>
         <details>
-          <summary role="heading" aria-level="1">-- vodafone --</summary>
+          <summary role="heading" aria-level="1">vodafone</summary>
           <button id="Vodafone_LTE">antenas LTE (4G)</button>
           <button id="Vodafone_NR">antenas NR (5G)</button>
           <button id="cobertura_5g_vodafone">cobertura 5G</button>
           <button id="cobertura_4g_vodafone">cobertura 4G</button>
         </details>
         <details>
-          <summary role="heading" aria-level="1">-- orange --</summary>
+          <summary role="heading" aria-level="1">orange</summary>
           <button id="Orange_LTE">antenas LTE (4G)</button>
           <button id="Orange_NR">antenas NR (5G)</button>
           <button id="cobertura_5g_orange">cobertura 5G</button>
           <button id="cobertura_4g_orange">cobertura 4G</button>
         </details>
         <details>
-          <summary role="heading" aria-level="1">-- yoigo --</summary>
+          <summary role="heading" aria-level="1">yoigo</summary>
           <button id="Yoigo_LTE">antenas LTE (4G)</button>
           <button id="cobertura_5g_yoigo">cobertura 5G</button>
           <button id="cobertura_4g_yoigo">cobertura 4G</button>
         </details>
         <details>
-          <summary role="heading" aria-level="1">-- masmovil --</summary>
+          <summary role="heading" aria-level="1">masmovil</summary>
           <button id="cobertura_5g_masmovil">cobertura 5G</button>
           <button id="cobertura_4g_masmovil">cobertura 4G</button>
         </details>
         <details>
-          <summary role="heading" aria-level="1">-- otras --</summary>
-          <button id="Digi_LTE">Digi LTE</button>
-          <button id="Endesa_LTE">Endesa LTE</button>
-          <button id="Iberdrola_LTE">Iberdrola LTE</button>
-          <button id="mnc_40_LTE">MNC 40 LTE</button>
-          <button id="mnc_99_LTE">MNC 99 LTE</button>
+          <summary role="heading" aria-level="1">otras</summary>
+          <button id="Digi_LTE">Digi antenas LTE (4G)</button>
+          <button id="Endesa_LTE">Endesa antenas LTE (4G)</button>
+          <button id="Iberdrola_LTE">Iberdrola antenas LTE (4G)</button>
+          <button id="mnc_40_LTE">MNC 40 antenas LTE (4G)</button>
+          <button id="mnc_99_LTE">MNC 99 antenas LTE (4G)</button>
         </details>
       </div>
       <div id="mapa"></div>
     </div>
 
     <script src="js/keis.js"></script>
+    <script src="js/icons.js"></script>
+    <script src="js/operators.js"></script>
+    <script src="js/layerConfig.js"></script>
     <script src="js/config.js"></script>
     <script src="js/sources.js"></script>
     <script src="js/layerButtons.js"></script>
     <script src="js/layers.js"></script>
-    <script src="js/icons.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

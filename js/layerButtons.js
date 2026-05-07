@@ -13,24 +13,32 @@ function inicializarBotones() {
   });
 
   // Toggle de capas — lista generada desde LAYER_CONFIG
-  const capas = LAYER_CONFIG.map(c => c.id);
+  const capas = LAYER_CONFIG;
   const capasOcultas = LAYER_CONFIG.filter(c => !c.visibleByDefault).map(c => c.id);
 
-  capas.forEach(idCapa => {
-    const boton = document.getElementById(idCapa);
-    if (!boton) return; // botón no existe en el HTML, se ignora silenciosamente
+  capas.forEach(capa => {
+    let boton;
+    if(capa.linkedTo) {boton = document.getElementById(capa.LinkedTo)}
+    else {boton = document.getElementById(capa.id);}
 
-    let visible = !capasOcultas.includes(idCapa);
+    if (!boton ) return;
+    let visible = !capasOcultas.includes(capa.id);
     boton.style.color = visible ? "white" : "gray";
 
     boton.addEventListener("click", () => {
-      if (!map.getLayer(idCapa)) {
-        console.error(`La capa "${idCapa}" no existe en el mapa.`);
+      if (!map.getLayer(capa.id)) {
+        console.error(`La capa "${capa.id}" no existe en el mapa.`);
         return;
       }
       visible = !visible;
-      map.setLayoutProperty(idCapa, "visibility", visible ? "visible" : "none");
+      map.setLayoutProperty(capa.id, "visibility", visible ? "visible" : "none");
       boton.style.color = visible ? "white" : "gray";
+      capas.filter(c => c.linkedTo === capa.id)
+      .forEach(c => {
+        if (map.getLayer(c.id)) {
+        map.setLayoutProperty(c.id, "visibility", visible ? "visible" : "none");
+        }
+      })
     });
   });
 

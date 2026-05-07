@@ -35,9 +35,9 @@ const LAYER_CONFIG = [
         ["linear"],
         ["get", "render_height"],
         0,
-        "#bdc6ff55",
+        "#ec589555",
         10,
-        "#fc56e255",
+        "#f021df55",
         40,
         "#80005e55",
       ],
@@ -60,10 +60,10 @@ const LAYER_CONFIG = [
     filter: [">=", "VELOCIDAD", 48],
     minzoom: 13,
     paint: {
-      "fill-color": generarGradienteVelocidad(OPERADORES.x?.color ?? "#7dab00"),
+      "fill-color": generarGradienteVelocidad(OPERADORES.x?.color ?? "#a2a7ca"),
       "fill-opacity": 1,
     },
-    visibleByDefault: true,
+    visibleByDefault: false,
     popup: true,
   },
   {
@@ -76,7 +76,7 @@ const LAYER_CONFIG = [
     layerType: "fill",
     minzoom: 13,
     paint: {
-      "fill-color": "#7dab0077",
+      "fill-color": "#a2a7ca77",
       "fill-opacity": 1,
     },
     visibleByDefault: false,
@@ -91,14 +91,14 @@ const LAYER_CONFIG = [
     sourceId: "ixps",
     sourceType: "geojson",
     data: { type: "FeatureCollection", features: [] }, // vacío, cargarIXPs() lo rellena
-    layerType: "circle",
-    paint: {
-      "circle-radius": ["interpolate", ["linear"], ["zoom"], 5, 6, 20, 25],
-      "circle-color": "#56a2ff",
-      "circle-stroke-color": "#000000",
-      "circle-stroke-width": 3,
-      "circle-pitch-alignment": "map",
-      "circle-pitch-scale": "map",
+    layerType: "symbol",
+    layout: {
+      "icon-image": "icono-ixp",
+      "icon-size": ["interpolate", ["linear"], ["zoom"], 5, 0.025, 10, 0.04, 20, 0.09],
+      "icon-pitch-alignment": "map",
+      "icon-rotation-alignment": "map",
+      "icon-allow-overlap": true,
+      "symbol-avoid-edges": true,
     },
     visibleByDefault: true,
     popup: true,
@@ -126,7 +126,6 @@ const LAYER_CONFIG = [
     },
     visibleByDefault: true,
     popup: true,
-   
   },
   {
     id: "guifi_nodos_2d",
@@ -163,7 +162,7 @@ const LAYER_CONFIG = [
     },
     visibleByDefault: true,
     popup: true,
-    popupExclude: ["NODE_NAME","cnml_title"],
+    popupExclude: ["NODE_NAME", "cnml_title"],
   },
   {
     id: "guifi_nodos_3d",
@@ -201,13 +200,17 @@ const LAYER_CONFIG = [
     sourceType: "geojson",
     data: "./data/subCableMap/subCable_spain.geojson",
     layerType: "line",
-    paint: { "line-color":["get", "color"], "line-width": 2, "line-opacity": 0.7 },
+    paint: {
+      "line-color": ["get", "color"],
+      "line-width": 3,
+      "line-opacity": 0.7,
+    },
     visibleByDefault: true,
     popup: true,
     popupExclude: ["color", "coordinates", "feature_id", "id"],
   },
 
-    {
+  {
     id: "cables_sub",
     categoria: "privada",
     label: "globales",
@@ -215,13 +218,15 @@ const LAYER_CONFIG = [
     sourceType: "geojson",
     data: "./data/subCableMap/subCable.geojson",
     layerType: "line",
-    paint: { "line-color":["get", "color"], "line-width": 2, "line-opacity": 0.7 },
+    paint: {
+      "line-color": ["get", "color"],
+      "line-width": 2,
+      "line-opacity": 0.7,
+    },
     visibleByDefault: false,
     popup: true,
     popupExclude: ["color", "coordinates", "feature_id", "id"],
   },
-
-  
 
   // ── PRIVADA: cobertura por operadora ─────────────────────────────────
   // Generadas programáticamente justo debajo del array
@@ -245,7 +250,7 @@ Object.entries(OPERADORES).forEach(([cif, op]) => {
     ],
     paint: {
       "fill-color": generarGradienteVelocidad(op.color),
-      "fill-opacity": 1,
+      "fill-opacity": 0.3,
     },
     visibleByDefault: false,
     popup: true,
@@ -263,9 +268,9 @@ Object.entries(OPERADORES).forEach(([cif, op]) => {
     filter: [">", ["index-of", cif, ["get", "COBERTURA"]], -1],
     paint: {
       "fill-color": op.color,
-      "fill-opacity": 1,
+      "fill-opacity": 0.3,
     },
-    visibleByDefault: false,
+    visibleByDefault: op.clave === "Telefonica" ? true : false,
     popup: true,
   });
 });
@@ -284,6 +289,7 @@ Object.entries(OPERADORES).forEach(([cif, op]) => {
 ].forEach(({ clave, techs }) => {
   techs.forEach((tech) => {
     const id = `${clave}_${tech}`;
+    // push de capa con los iconos
     LAYER_CONFIG.push({
       id,
       categoria: "privada",
@@ -301,18 +307,52 @@ Object.entries(OPERADORES).forEach(([cif, op]) => {
           ["linear"],
           ["zoom"],
           0,
-          0.03,
+          0.001,
           8,
-          0.02,
+          0.006,
           16,
           0.15,
         ],
         "icon-allow-overlap": true,
+        "symbol-avoid-edges": true,
       },
       paint: {
         "icon-color": oscurecerColor(colorPorClave(clave), 0.65),
       },
-      visibleByDefault: false,
+      visibleByDefault: clave === "Telefonica" && tech === "LTE" ? true : false,
+      popup: true,
+    });
+    //push de capa con los círculos de rango de las antenas
+    LAYER_CONFIG.push({
+      id: `${id}_range`,
+      linkedTo: id,
+      categoria: "publica",
+      label: `rango  ${tech}`,
+      grupo: clave.toLowerCase(),
+      sourceId: id,
+      sourceType: "null",
+      sourceLayer: "antenas",
+      data: `pmtiles://./data/openCell/pmtiles/${id}.pmtiles`,
+      layerType: "circle",
+      paint: {
+        // convertir m to px -> px = m/156543 * cos(latitud)/2^zoom // latitud ~40º
+        "circle-radius": [
+          "interpolate",
+          ["exponential", 2],
+          ["zoom"],
+          0,
+          0,
+          20,
+          ["/", ["get", "range"], 0.075],
+        ],
+        "circle-color": oscurecerColor(colorPorClave(clave), 0.55),
+        "circle-opacity": 0.03,
+        "circle-blur": 0.1,
+        "circle-stroke-color": oscurecerColor(colorPorClave(clave), 0.65),
+        "circle-stroke-width": 0.1,
+        "circle-pitch-alignment": "map",
+      },
+      visibleByDefault: clave === "Telefonica" && tech === "LTE" ? true : false,
       popup: false,
     });
   });

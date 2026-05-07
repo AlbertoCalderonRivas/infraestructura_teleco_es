@@ -36,6 +36,7 @@ map.on("load", async () => {
 
   await cargarIcono("icono-antena_LTE", "icons/LTE.png", { sdf: true });
   await cargarIcono("icono-antena_NR", "icons/NR.png", { sdf: true });
+  await cargarIcono("icono-ixp", "icons/ixp.png", { sdf: false });
 
   inicializarSources();
   inicializarLayers();
@@ -87,6 +88,7 @@ map.on("load", async () => {
       .setHTML(
         `
           <h3>${props.NODE_NAME || props.name || props.COBERTURA || ""}</h3>
+          ${feature.layer.id.includes("cobertura_5g") ? `<p><strong>TECNOLOGÍA:</strong> NR 5G</p>` : feature.layer.id.includes("cobertura_4g") ? `<p><strong>TECNOLOGÍA:</strong> LTE 4G</p>` : ""}
           <p>${filas}</p>
           ${props.url ? `<a href="${props.url}" target="_blank">🔗</a>` : ""}
         `,

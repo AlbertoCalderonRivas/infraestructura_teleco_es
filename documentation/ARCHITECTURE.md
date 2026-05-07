@@ -35,6 +35,7 @@ Every layer is an object in the `LAYER_CONFIG` array. `sources.js`, `layers.js`,
 ```js
 {
   id: "my_layer",           // unique string — must match the button id in index.html
+  linkedTo: "id",           // optional: toggle visibility by another layer's button - must match the other layer's id in index.html
   categoria: "publica",     // "base" | "publica" | "comunitaria" | "privada"
   label: "My Layer",        // human-readable name (for future auto-generated UI)
   grupo: "todas",           // optional: operator group for filtering (e.g. "telefonica")

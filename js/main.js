@@ -58,7 +58,7 @@ map.on("load", async () => {
     });
     if (!features.length) return;
 
-    const feature = features[0]; // solo el más arriba
+    const feature = features[0]; // solo el más arriba, si no pueden aparecer varios popups
     const capa = feature.layer.id;
     const layerConfig = LAYER_CONFIG.find((l) => l.id === capa);
 

@@ -8,7 +8,7 @@ const LAYER_CONFIG = [
     categoria: "base",
     label: "3D hills",
     sourceId: "terrain-dem",
-    sourceType: null, // null = no crear source, ya existe
+    sourceType: null, 
     layerType: "hillshade",
     paint: {
       "hillshade-illumination-direction": 195,
@@ -55,7 +55,7 @@ const LAYER_CONFIG = [
     label: "cobertura 5G",
     grupo: "todas",
     sourceId: "cobertura_5g",
-    sourceType: "geojson-dynamic", // fuente dinámica, se gestiona aparte
+    sourceType: "geojson-dynamic", 
     layerType: "fill",
     filter: [">=", "VELOCIDAD", 48],
     minzoom: 13,
@@ -90,7 +90,7 @@ const LAYER_CONFIG = [
     label: "IXPs",
     sourceId: "ixps",
     sourceType: "geojson",
-    data: { type: "FeatureCollection", features: [] }, // vacío, cargarIXPs() lo rellena
+    data: { type: "FeatureCollection", features: [] }, 
     layerType: "symbol",
     layout: {
       "icon-image": "icono-ixp",
@@ -240,7 +240,7 @@ Object.entries(OPERADORES).forEach(([cif, op]) => {
     label: "cobertura 5G",
     grupo: op.clave.toLowerCase(),
     sourceId: "cobertura_5g",
-    sourceType: null, // comparte source con cobertura_5g
+    sourceType: null, 
     layerType: "fill",
     minzoom: 13,
     filter: [
@@ -335,7 +335,7 @@ Object.entries(OPERADORES).forEach(([cif, op]) => {
       data: `pmtiles://./data/openCell/pmtiles/${id}.pmtiles`,
       layerType: "circle",
       paint: {
-        // convertir m to px -> px = m/156543 * cos(latitud)/2^zoom // latitud ~40º
+        // convertir m to px -> px = m/156543 * cos(latitud)/2^zoom // latitud ~40º // esta conversión es un poco aleatoria hay que revisarla
         "circle-radius": [
           "interpolate",
           ["exponential", 2],

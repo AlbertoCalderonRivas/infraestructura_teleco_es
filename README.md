@@ -96,6 +96,9 @@ Proyecto desarrollado como parte de una tesis doctoral en Arquitectura. El enfoq
 
 ---
 
+## Licencia
+GNU GENERAL PUBLIC LICENSE — [LICENSE](LICENSE)
+
 *Proyecto sin ánimo de lucro. Uso exclusivamente académico.*
 **Autoría**: Alberto Calderón Rivas
 **web**: [calde-core](https://www.calde-core.com)

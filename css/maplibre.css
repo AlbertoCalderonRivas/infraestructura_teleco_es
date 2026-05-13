@@ -88,7 +88,7 @@
 .maplibregl-ctrl-attrib-button:focus,
 .maplibregl-ctrl-group button:focus {
     
-  box-shadow: 0 0 0px 1px rgb(44, 101, 8);/*inverted (para poder invertir el icono)*/
+  box-shadow: 0 0 0px 1px rgb(44, 101, 8);/*inverted (para el fondo negro tengo que invertir el icono más tarde)*/
 }
 
 .maplibregl-ctrl-group {

@@ -28,7 +28,7 @@ Order matters: each file depends on globals defined by the ones before it.
 
 ## LAYER_CONFIG — the central data structure
 
-Every layer is an object in the `LAYER_CONFIG` array. `sources.js`, `layers.js`, and `layerButtons.js` all iterate over it — nothing is hardcoded in those files.
+Every layer is an object in the `LAYER_CONFIG` array. `sources.js`, `layers.js`, and `layerButtons.js` all iterate over it.
 
 ### Full object spec
 
@@ -163,4 +163,4 @@ If the feature has a `COBERTURA` field, CIF codes are resolved to operator names
 - Right-click to copy coordinates (noted in main.js) not yet implemented
 
 
-** This documentation was created using an LLM and it is human reviewed
+** This documentation was created using an LLM and it is human reviewed, mistakes can (and probably will) be present <3

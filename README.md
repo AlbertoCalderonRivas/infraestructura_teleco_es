@@ -83,8 +83,8 @@ python -m http.server 8000
 | [PeeringDB](https://www.peeringdb.com/) | CC BY-SA 4.0 |
 | [guifi.net](https://guifi.net/) | CXSC (Comuns de Xarxes Sense Cables) |
 | [OpenCelliD](https://www.opencellid.org/) | CC BY-SA 4.0 |
-| [SETELECO – Cobertura móvil 4G/5G](https://avance.digital.gob.es/banda-ancha/cobertura/) | Pendiente de confirmación — datos públicos del Ministerio para la Transformación Digital |
-| [TeleGeography – Submarine Cable Map](https://www.submarinecablemap.com/) | Pendiente de confirmación — uso académico sin ánimo de lucro, con atribución |
+| [SETELECO – Cobertura móvil 4G/5G](https://avance.digital.gob.es/banda-ancha/cobertura/) | sujeto al artículo 8 de la ley 37/2007 confirmado tras contacto directo con autores |
+| [TeleGeography – Submarine Cable Map](https://www.submarinecablemap.com/) | CC BY-SA 4.0 confirmado tras contacto directo con autores|
 | [IGN – Unidades Administrativas](https://centrodedescargas.cnig.es/) | Reutilización de información del sector público (Real Decreto 1495/2011) |
 | [MapTiler](https://www.maptiler.com/) | Licencia comercial |
 

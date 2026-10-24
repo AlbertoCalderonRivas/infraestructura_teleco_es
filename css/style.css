@@ -181,8 +181,8 @@ a:visited{
     position: absolute;
     margin: 10px;
     z-index: 1000;
-    height: 29px;
-    width: 29px;
+    height: 30px;
+    width: 30px;
     border: 1px solid rgb(211, 154, 247);
     border-radius: 4px;
     background: #050010;
@@ -212,4 +212,61 @@ a:visited{
     transition: all 0.3s;
 }
 
+.govern-button{
+    position: absolute;
+    margin: 10px;
+    right: 35px;
+    z-index: 1000;
+    height: 30px;
+    width: 300 px;
+    border: 1px solid rgb(211, 154, 247);
+    border-radius: 4px;
+    background: #050010;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: lighter;
+    color: rgb(203, 203, 203);
+    font-weight: 900;
+    display: flex;
+    cursor: pointer;
+    transition: all 0.3s;
 
+}
+
+.govern-button:hover{
+    background-color: rgb(211, 154, 247);
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+
+}
+
+.govern-button.visible {
+    border-color: #00000000;
+    background: #00000000;
+    font-size:0.9em;
+    transition: all 0.3s;
+}
+
+
+#leyenda-gobernanza {
+  display: none;
+  position: absolute; 
+  right: 10px; 
+  border: 1px solid rgb(211, 154, 247);
+    border-radius: 4px;
+  top: 50px; 
+  z-index: 999;
+  
+  padding: 10px 40px 10px 20px;
+  color: #fff; 
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.15); 
+  backdrop-filter: blur(4px);
+}
+#leyenda-gobernanza.visible { display: block; }
+
+.leyenda-item { display: flex; align-items: center; gap: 8px; line-height: 1.6; }
+.leyenda-item i { width: 6px; height: 6px; flex: none; }

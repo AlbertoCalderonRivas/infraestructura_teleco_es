@@ -41,7 +41,6 @@ map.on("load", async () => {
   inicializarSources();
   inicializarLayers();
   inicializarBotones();
-
   cargarCobertura5G();
   cargarCobertura4G();
   map.on("moveend", cargarCobertura5G);
@@ -65,19 +64,33 @@ map.on("load", async () => {
     const coordenadas = e.lngLat;
     const props = { ...feature.properties };
 
+    //Caso especial para propiedad "cobertura"
     if (props.COBERTURA) {
       props.COBERTURA = props.COBERTURA.split(";")
         .filter((cif) => cif.trim())
         .map((cif) => OPERADORES[cif.trim()]?.nombre || cif.trim())
         .join(", ");
     }
+    if (props.mnc !== undefined) props.operadora = MNC_OPERADOR[props.mnc] ?? `desconocida (${props.mnc})`;
 
-    const excluir = [
-      
-      "name",
-      
-      ...(layerConfig?.popupExclude || []),
-    ];
+    //Caso especial para propiedad "link"
+    if( props.link){
+    let links = Array.isArray(props.link) ? props.link : [props.link];
+    if (typeof props.link === "string" && props.link.trim().startsWith("[")) {
+      const parsedLinks = JSON.parse(props.link);
+      if (Array.isArray(parsedLinks)) links = parsedLinks;
+    }
+
+    props.link = links
+      .filter((link) => typeof link === "string" && link.trim())
+      .map(
+        (link) =>
+          `<a href="${link}" target="_blank" rel="noopener noreferrer">🔗</a>`,
+      )
+      .join(" ");
+    }
+
+    const excluir = ["name", ...(layerConfig?.popupExclude || [])];
     const filas = Object.entries(props)
       .filter(([k]) => !excluir.includes(k))
       .map(([k, v]) => `<b>${k}:</b> ${v}`)

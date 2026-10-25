@@ -40,6 +40,7 @@ map.on("load", async () => {
 
   inicializarSources();
   inicializarLayers();
+  await construirMenu();
   inicializarBotones();
   cargarCobertura5G();
   cargarCobertura4G();

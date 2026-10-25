@@ -13,6 +13,7 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/maplibre.css" />
+    <link rel="stylesheet" href="css/menu-info.css" />
   </head>
   <body>
     <div class="info">
@@ -23,35 +24,7 @@
         <h3>__ INFRAESTRUCTURA FÍSICA DE INTERNET__</h3>
         <h4>__ en España __</h4>
         
-        <details>
-          <summary role="heading" aria-level="1">base</summary>
-          <button id="hillshade">3D hills</button>
-          <button id="edificios-3d">3D buildings</button>
-        </details>
-        <details open>
-          <summary role="heading" aria-level="1">puntos neutros intercambio</summary>
-          <button id="ixps">nodos IXPs</button>
-        </details>
-        <details open>
-          <summary role="heading" aria-level="1">red guifi.net</summary>
-          <button id="guifi_links">links</button>
-          <button id="guifi_nodos_2d">nodos</button>
-          <button id="guifi_nodos_3d">alturas de nodos</button>
-        </details>
-        <details open>
-          <summary role="heading" aria-level="1">cables submarinos</summary>
-          <button id="cables_sub_spain">operativos</button>
-          <button id="cables_sub_spain_planned">planeados</button>
-        </details>
-    
-        <details open>
-          <summary role="heading" aria-level="1">telefonía móvil</summary>
-          <button id="antenas_NR">antenas NR (5G)</button>
-          <button id="antenas_LTE">antenas LTE (4G)</button>
-          <button id="rangos">rangos de cobertura aproximados</button>
-          <button id="cobertura_5g">cobertura agregada 5G</button>
-          <button id="cobertura_4g">cobertura agregada 4G</button>
-        </details>
+        <div id="menu-grupos"></div>
        
       </div>
       <div id="mapa"></div>
@@ -59,12 +32,13 @@
 
     <script src="js/keis.js"></script>
     <script src="js/icons.js"></script>
-    <script src="js/operators.js"></script>
+    <script src="js/dictionaries.js"></script>
     <script src="js/layerConfig.js"></script>
     <script src="js/config.js"></script>
     <script src="js/sources.js"></script>
     <script src="js/layerButtons.js"></script>
     <script src="js/layers.js"></script>
+    <script src="js/menuBuilder.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

@@ -3,7 +3,7 @@
 ## Load order (index.html)
 
 ```
-keis.js → operators.js → layerConfig.js → config.js → sources.js → layerButtons.js → layers.js → icons.js → main.js
+keis.js → dictionaries.js → layerConfig.js → config.js → sources.js → layerButtons.js → layers.js → icons.js → main.js
 ```
 
 Order matters: each file depends on globals defined by the ones before it.
@@ -15,7 +15,7 @@ Order matters: each file depends on globals defined by the ones before it.
 | File | Defines | Depends on |
 |---|---|---|
 | `keis.js` | `KEYS` | — |
-| `operators.js` | `OPERADORES`, `OPERADORES_EXTRA`, `colorPorClave()`, `generarGradienteVelocidad()`, `oscurecerColor()` | — |
+| `dictionaries.js` | `OPERADORES`, `OPERADORES_EXTRA`, `colorPorClave()`, `generarGradienteVelocidad()`, `oscurecerColor()` | — |
 | `layerConfig.js` | `LAYER_CONFIG` (array) | `OPERADORES`, `generarGradienteVelocidad()`, `oscurecerColor()`, `colorPorClave()` |
 | `config.js` | `map` (MapLibre instance) | — |
 | `sources.js` | `inicializarSources()`, `cargarIXPs()`, `cargarCobertura5G()`, `cargarCobertura4G()` | `map`, `LAYER_CONFIG`, `KEYS` |
@@ -118,7 +118,7 @@ layerType: "symbol",   // or "circle"
 
 ### Case 4: new operator with coverage + antennas
 
-1. Add the operator to `OPERADORES` in `operators.js` (if it has a CIF and coverage data):
+1. Add the operator to `OPERADORES` in `dictionaries.js` (if it has a CIF and coverage data):
 ```js
 A12345678: { nombre: "Nueva Op", color: "#00ffcc", clave: "NuevaOp" }
 ```
@@ -130,7 +130,7 @@ Coverage layers (5G + 4G) are generated automatically by the loop at the bottom 
 ```
 And add PMTiles files to `data/openCell/pmtiles/`.
 
-3. If the operator has no CIF (no coverage), add it only to `OPERADORES_EXTRA` in `operators.js` and add it to the antennas loop manually.
+3. If the operator has no CIF (no coverage), add it only to `OPERADORES_EXTRA` in `dictionaries.js` and add it to the antennas loop manually.
 
 4. Add the corresponding buttons to `index.html`.
 

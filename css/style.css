@@ -219,15 +219,14 @@ a:visited{
     z-index: 1000;
     height: 30px;
     width: 300 px;
+    padding: 0px 10px;
     border: 1px solid rgb(211, 154, 247);
     border-radius: 4px;
     background: #050010;
     align-items: center;
     justify-content: center;
-    color: white;
+    color:  rgb(255, 255, 0);
     font-family: 'Ubuntu Mono', monospace;
-    font-weight: lighter;
-    color: rgb(203, 203, 203);
     font-weight: 900;
     display: flex;
     cursor: pointer;
@@ -240,6 +239,14 @@ a:visited{
     color: black;
     transition: background-color 0.3s, color 0.3s;
 
+}
+
+.govern-button.gobernanza-activa {
+    color: white;
+}
+
+.govern-button.gobernanza-activa:hover {
+    color: black;
 }
 
 .govern-button.visible {
@@ -266,7 +273,10 @@ a:visited{
   background: rgba(0, 0, 0, 0.15); 
   backdrop-filter: blur(4px);
 }
-#leyenda-gobernanza.visible { display: block; }
+#leyenda-gobernanza.visible { 
+    display: block; 
+    
+}
 
 .leyenda-item { display: flex; align-items: center; gap: 8px; line-height: 1.6; }
 .leyenda-item i { width: 6px; height: 6px; flex: none; }

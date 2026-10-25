@@ -1,0 +1,134 @@
+/* Menú generado desde layerInfo.json + panel de información */
+
+#menu-grupos {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* fila: botón de capa + botón "i" */
+.layer-row {
+  display: flex;
+  gap: 4px;
+  align-items: stretch;
+}
+
+#menuCapas .layer-row > button:first-child {
+  flex: 1;
+  min-width: 0;
+  width: auto;
+}
+
+/* más específico que "#menuCapas button" para ganarle */
+#menuCapas .layer-info-btn {
+  flex: none;
+  width: 28px;
+  padding: 0;
+  font-style: italic;
+  font-weight: bold;
+}
+
+#menuCapas .layer-info-btn.activo {
+  background-color: rgb(211, 154, 247);
+  color: #050010;
+}
+
+/* panel */
+.layer-info-panel {
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 330px;
+  z-index: 101;
+  width: 320px;
+  max-height: calc(100% - 40px);
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 12px 16px 14px;
+  background: #050010ee;
+  border: 1px solid rgb(211, 154, 247);
+  border-radius: 4px;
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #fff;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(211, 154, 247) #050010;
+  transform: scaleX(0%);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.layer-info-panel.visible {
+  display: block;
+  transform: scaleX(100%);
+}
+
+.layer-info-panel h3 {
+  margin: 0 28px 8px 0;
+  color: #a2a5ff;
+  font-size: 1.1em;
+}
+
+.layer-info-desc {
+  margin: 0 0 10px;
+}
+
+.layer-info-panel dl {
+  margin: 0;
+}
+
+.layer-info-panel dt {
+  margin-top: 8px;
+  color: rgb(211, 154, 247);
+  font-size: 0.85em;
+}
+
+.layer-info-panel dd {
+  margin: 0;
+}
+
+.fiab-puntos {
+  letter-spacing: 2px;
+  color: #ade629;
+}
+
+.fiab-nota {
+  margin-top: 2px;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+.layer-info-close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: rgb(203, 203, 203);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.layer-info-close:hover {
+  background: rgb(0, 0, 0,0);
+  color: #050010;
+}
+
+/* en pantallas estrechas el panel baja a la parte inferior */
+@media (max-width: 700px) {
+  .layer-info-panel {
+    top: auto;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    width: auto;
+    max-height: 45%;
+  }
+}

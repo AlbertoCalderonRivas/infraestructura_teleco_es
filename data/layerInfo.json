@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "fiabilityScale": [
+      "anecdótica",
+      "baja",
+      "media",
+      "alta",
+      "muy alta"
+    ]
+  },
+
+  "groups": {
+    "base": { "title": "base", "open": false },
+    "ixp": { "title": "puntos neutros intercambio", "open": true },
+    "guifi": { "title": "red guifi.net", "open": true },
+    "cables": { "title": "cables submarinos", "open": true },
+    "movil": { "title": "telefonía móvil", "open": true }
+  },
+
+  "layers": {
+    "hillshade": {
+      "group": "base",
+      "label": "3D hills"
+      
+    },
+    "edificios-3d": {
+      "group": "base",
+      "label": "3D buildings"
+     
+    },
+
+    "ixps": {
+      "group": "ixp",
+      "label": "nodos IXPs",
+      "info": {
+        "description": "Instalaciones (facilities) asociadas a los IXPs registrados en España. En los 'Internet eXchange Point' se conectan las diferentes redes para intercambiar su tráfico ",
+        "source": "PeeringDB (API pública, consulta en directo al cargar el mapa)",
+        "link": "https://www.peeringdb.com/",
+        "date": "ahora mismo",
+        "fiability": {
+          "level": 4,
+          "note": "Datos declarados voluntariamente por las propias organizaciones."
+        },
+        "limitations": "La gobernanza de estas infraestructuras no se ha podido determinar todavía, de manera general son de propiedad privada con mediación pública o comunitaria (fundaciones)",
+        "moreinfo": "Solo se muestran los IXPs que aparecen con país = ES."
+      }
+    },
+
+    "guifi_links": {
+      "group": "guifi",
+      "label": "links",
+      "info": {
+        "description": "Enlaces punto a punto entre nodos de la red comunitaria guifi.net.",
+        "source": "guifi.net (exportación CNML)",
+        "link": "https://guifi.net/",
+        "fiability": {
+          "level": 4,
+          "note": "Información introducida por la propia comunidad al crear los links."
+        },
+        "limitations": "Se detectan ciertos links entre nodos fantasma. \nHay ciertos links de guifi.net que no se representan como la fibra óptica alquilada.\n Hay varios proyectos publico-comunitarios que no están representados aun (presentes en la web linkeada) ",
+        "moreinfo": "Verde: Working. Gris: otros estados."
+      }
+    },
+    "guifi_nodos_2d": {
+      "group": "guifi",
+      "label": "nodos",
+      "info": {
+        "description": "Nodos de guifi.net.",
+        "source": "guifi.net (exportación CNML)",
+        "link": "https://guifi.net/",
+        "fiability": {
+          "level": 4,
+          "note": "Ubicación y estado declarados por la comunidad; pueden estar desactualizados."
+        },
+        "limitations": "Se detectan ciertos nodos con coordenadas imposibles, probablemente intercambian latitud y longitud\n Hay varios proyectos publico-comunitarios que no están representados aun (presentes en la web linkeada)",
+        "moreinfo": "Verde: Working. Gris: otros estados."
+      }
+    },
+    "guifi_nodos_3d": {
+      "group": "guifi",
+      "label": "alturas de nodos",
+      "info": {
+        "description": "Prismas con la altura de la antena declarada en cada nodo de guifi.net. Solo visible con un zoom cercano",
+        "source": "guifi.net (campo antenna_elevation)",
+        "link": "https://guifi.net/",
+        "fiability": {
+          "level": 2,
+          "note": "La altura es un dato opcional y la rellena la comunidad."
+        },
+        "limitations": "Hay alturas cuestionables o imposibles, y bastantes sin datos.",
+        "moreinfo": "Nodos sin dato: en naranja con una altura mínima de 3 m"
+      }
+    },
+
+    "cables_sub_spain": {
+      "group": "cables",
+      "label": "operativos",
+      "info": {
+        "description": "Cables submarinos de telecomunicaciones en servicio con aterrizaje en España",
+        "source": "TeleGeography, Submarine Cable Map",
+        "link": "https://www.submarinecablemap.com/",
+        "fiability": {
+          "level": 5,
+          "note": "Trazados esquemáticos, no rutas exactas. Verificados con varias fuentes"
+        },
+        "limitations": "TeleGeography solo confirma datos hasta el 2020, la financiación no se ha tenido en cuenta",
+        "moreinfo": "se considera gobernanza pública cuando el propietario es una entidad pública, se da el caso de que el proveedor (supplier) pueda ser privado pero una vez construído deja de tener agencia. En los casos de gobernanza pública-privada las entidades propietarias son tanto públicas como privadas. La financiación incluye en muchos casos subvenciones públicas tanto españolas como europeas, así como de terceros países."
+      }
+    },
+    "cables_sub_spain_planned": {
+      "group": "cables",
+      "label": "planeados",
+      "info": {
+        "description": "Cables submarinos anunciados que aún no están en servicio. Pueden estár ya desplegados",
+        "source": "TeleGeography, Submarine Cable Map",
+        "link": "https://www.submarinecablemap.com/",
+        "fiability": {
+          "level": 3,
+          "note": "Las fechas y los trazados de proyectos futuros cambian con frecuencia."
+        },
+        "limitations": "TeleGeography solo confirma datos hasta el 2020",
+        "moreinfo": "se considera gobernanza pública cuando el propietario es una entidad pública, se da el caso de que el proveedor (supplier) pueda ser privado pero una vez construído deja de tener agencia. En los casos de gobernanza pública-privada las entidades propietarias son tanto públicas como privadas. La financiación incluye en muchos casos subvenciones públicas tanto españolas como europeas, así como de terceros países."
+      }
+    },
+
+    "antenas_NR": {
+      "group": "movil",
+      "label": "antenas NR (5G)",
+      "info": {
+        "description": "Antenas con tecnología radio NR (5G).",
+        "source": "OpenCelliD",
+        "link": "https://opencellid.org/",
+        "license": "CC BY-SA 4.0",
+        "fiability": {
+          "level": 2,
+          "note": "Posiciones estimadas a partir de mediciones colaborativas particulares subidas a la base de datos voluntariamente, no de registros oficiales."
+        },
+        "limitations": "La operadora se infiere del código MNC; algunos códigos no están asignados con certeza. Esta capa tiene un claro sesgo en función de la facilidad de cada territorio para hacer mediciones: Carreteras y núcleos poblados tienden a estar más representados que zonas rurales. Al ser datos triangulados por varias mediciones, la posición no es exacta. Se puede comprobar más información en infoAntenas (Ministerio de Industria, Comercio y Turismo)",
+        "moreinfo": "Telefónica se clasifica como pública-privada por la participación estatal en su capital (10% de acciones)."
+      }
+    },
+    "antenas_LTE": {
+      "group": "movil",
+      "label": "antenas LTE (4G)",
+      "info": {
+        "description": "Antenas con tecnología radio LTE (4G).",
+        "source": "OpenCelliD",
+        "link": "https://opencellid.org/",
+        "license": "CC BY-SA 4.0",
+        "fiability": {
+          "level": 2,
+          "note": "Posiciones estimadas a partir de mediciones colaborativas particulares subidas a la base de datos voluntariamente, no de registros oficiales."
+        },
+        "limitations": "La operadora se infiere del código MNC; algunos códigos no están asignados con certeza. Esta capa tiene un claro sesgo en función de la facilidad de cada territorio para hacer mediciones: Carreteras y núcleos poblados tienden a estar más representados que zonas rurales. Al ser datos triangulados por varias mediciones, la posición no es exacta. Se puede comprobar más información en infoAntenas (Ministerio de Industria, Comercio y Turismo)",
+        "moreinfo": "Telefónica se clasifica como pública-privada por la participación estatal en su capital (10% de acciones)."
+      }
+    },
+    "rangos": {
+      "group": "movil",
+      "label": "rangos de cobertura aproximados",
+      "info": {
+        "description": "Círculos con el radio estimado de cada antena.",
+        "source": "OpenCelliD (campo range)",
+        "link": "https://opencellid.org/",
+        "fiability": {
+          "level": 1,
+          "note": "Es una estimación estadística del radio de las mediciones, no la cobertura real."
+        },
+        "limitations": "La representación puede no ser certera ya que aproxima distancias. Permite ver la densidad y la posible área de influencia, no para afirmar que hay señal."
+      }
+    },
+    "cobertura_5g": {
+      "group": "movil",
+      "label": "cobertura agregada 5G",
+      "info": {
+        "description": "Polígonos de cobertura 5G agregada de todas las operadoras con velocidad de conexión (campo VELOCIDAD). Solo visible con un zoom cercano",
+        "source": "SETELECO, información de cobertura 5G 2024 (servicio ArcGIS)",
+        "link": "https://avancedigital.mineco.gob.es/banda-ancha/cobertura/",
+        "date": "2024",
+        "fiability": {
+          "level": 5,
+          "note": "Fuente oficial, pero los datos los declaran las propias operadoras."
+        },
+        "limitations": "La operadora es inferida por su CIF. No muestra gobernanza porque agrupa todas las operadoras"
+      }
+    },
+    "cobertura_4g": {
+      "group": "movil",
+      "label": "cobertura agregada 4G",
+      "info": {
+        "description": "Polígonos de cobertura 4G agregada de todas las operadoras. Solo visible con un zoom cercano",
+        "source": "SETELECO, información de cobertura 4G 2024 (servicio ArcGIS)",
+        "link": "https://avancedigital.mineco.gob.es/banda-ancha/cobertura/",
+        "date": "2024",
+        "fiability": {
+          "level": 5,
+          "note": "Fuente oficial, pero los datos los declaran las propias operadoras."
+        },
+        "limitations": "La operadora es inferida por su CIF. No muestra gobernanza porque agrupa todas las operadoras"
+      }
+    }
+  }
+}

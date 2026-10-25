@@ -88,6 +88,7 @@ function inicializarBotones() {
       e.target.textContent = modoGobernanza
         ? "no mostrar gobernanza"
         : "mostrar gobernanza";
+      e.currentTarget.classList.toggle("gobernanza-activa", modoGobernanza);
     });
 
   function actualizarRangos() {

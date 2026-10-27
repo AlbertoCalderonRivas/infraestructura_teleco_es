@@ -1,12 +1,6 @@
 {
   "meta": {
-    "fiabilityScale": [
-      "anecdótica",
-      "baja",
-      "media",
-      "alta",
-      "muy alta"
-    ]
+    "fiabilityScale": ["anecdótica", "baja", "media", "alta", "muy alta"]
   },
 
   "groups": {
@@ -14,19 +8,30 @@
     "ixp": { "title": "puntos neutros intercambio", "open": true },
     "guifi": { "title": "red guifi.net", "open": true },
     "cables": { "title": "cables submarinos", "open": true },
+    "fibra": { "title": "fibra óptica", "open": true },
     "movil": { "title": "telefonía móvil", "open": true }
   },
 
   "layers": {
     "hillshade": {
       "group": "base",
-      "label": "3D hills"
-      
+      "label": "3D hills",
+      "info": {
+        "source": "MapTiler",
+        "link": "https://www.maptiler.com/es/",
+        "license": "Licencia comercial",
+        "date": "ahora mismo"
+      }
     },
     "edificios-3d": {
       "group": "base",
-      "label": "3D buildings"
-     
+      "label": "3D buildings",
+      "info": {
+        "source": "MapTiler",
+        "link": "https://www.maptiler.com/es/",
+        "license": "Licencia comercial",
+        "date": "ahora mismo"
+      }
     },
 
     "ixps": {
@@ -36,6 +41,7 @@
         "description": "Instalaciones (facilities) asociadas a los IXPs registrados en España. En los 'Internet eXchange Point' se conectan las diferentes redes para intercambiar su tráfico ",
         "source": "PeeringDB (API pública, consulta en directo al cargar el mapa)",
         "link": "https://www.peeringdb.com/",
+        "license":"CC BY-SA 4.0",
         "date": "ahora mismo",
         "fiability": {
           "level": 4,
@@ -53,6 +59,8 @@
         "description": "Enlaces punto a punto entre nodos de la red comunitaria guifi.net.",
         "source": "guifi.net (exportación CNML)",
         "link": "https://guifi.net/",
+        "license": "CXSC (Comuns de Xarxes Sense Cables)",
+        "date": "2026",
         "fiability": {
           "level": 4,
           "note": "Información introducida por la propia comunidad al crear los links."
@@ -68,6 +76,8 @@
         "description": "Nodos de guifi.net.",
         "source": "guifi.net (exportación CNML)",
         "link": "https://guifi.net/",
+        "license": "CXSC (Comuns de Xarxes Sense Cables)",
+        "date": "2026",
         "fiability": {
           "level": 4,
           "note": "Ubicación y estado declarados por la comunidad; pueden estar desactualizados."
@@ -83,6 +93,8 @@
         "description": "Prismas con la altura de la antena declarada en cada nodo de guifi.net. Solo visible con un zoom cercano",
         "source": "guifi.net (campo antenna_elevation)",
         "link": "https://guifi.net/",
+        "license": "CXSC (Comuns de Xarxes Sense Cables)",
+        "date": "2026",
         "fiability": {
           "level": 2,
           "note": "La altura es un dato opcional y la rellena la comunidad."
@@ -99,11 +111,13 @@
         "description": "Cables submarinos de telecomunicaciones en servicio con aterrizaje en España",
         "source": "TeleGeography, Submarine Cable Map",
         "link": "https://www.submarinecablemap.com/",
+        "license": "CC BY-SA 4.0",
+        "date": "2022",
         "fiability": {
-          "level": 5,
-          "note": "Trazados esquemáticos, no rutas exactas. Verificados con varias fuentes"
+          "level": 4,
+          "note": "Trazados esquemáticos, no rutas exactas. Contrastados con la fuente privada (Global Internet DB)"
         },
-        "limitations": "TeleGeography solo confirma datos hasta el 2020, la financiación no se ha tenido en cuenta",
+        "limitations": "TeleGeography solo confirma datos hasta el 2022, la financiación no se ha tenido en cuenta",
         "moreinfo": "se considera gobernanza pública cuando el propietario es una entidad pública, se da el caso de que el proveedor (supplier) pueda ser privado pero una vez construído deja de tener agencia. En los casos de gobernanza pública-privada las entidades propietarias son tanto públicas como privadas. La financiación incluye en muchos casos subvenciones públicas tanto españolas como europeas, así como de terceros países."
       }
     },
@@ -114,12 +128,32 @@
         "description": "Cables submarinos anunciados que aún no están en servicio. Pueden estár ya desplegados",
         "source": "TeleGeography, Submarine Cable Map",
         "link": "https://www.submarinecablemap.com/",
+        "license": "CC BY-SA 4.0",
+        "date": "2022",
         "fiability": {
           "level": 3,
           "note": "Las fechas y los trazados de proyectos futuros cambian con frecuencia."
         },
         "limitations": "TeleGeography solo confirma datos hasta el 2020",
         "moreinfo": "se considera gobernanza pública cuando el propietario es una entidad pública, se da el caso de que el proveedor (supplier) pueda ser privado pero una vez construído deja de tener agencia. En los casos de gobernanza pública-privada las entidades propietarias son tanto públicas como privadas. La financiación incluye en muchos casos subvenciones públicas tanto españolas como europeas, así como de terceros países."
+      }
+    },
+    "cables_fibra": {
+      "group": "fibra",
+      "label": "fibra óptica",
+      "info": {
+        "description": "redes de fibra óptica desplegadas. No hay datos en el mapa",
+        "source": "IDE Menorca, IDEEX",
+        "link": [
+          "https://www.ideex.es/IDEEXVisor/",
+          "https://ide.cime.es/visor/"
+        ],
+        "license": "-",
+        "fiability": {
+          "level": 5,
+          "note": "Visores externos, los datos no pueden ser visualizados"
+        },
+        "limitations": "No se encuentra ningún conjunto de datos sobre despliegue de fibra óptica reutilizable; solo dos visores para Menorca y Extremadura, ninguno con licencia de reutilización. La Ley 11/2022 y el Real Decreto 330/2016 obligan a las operadoras a registrar su trazado en el PIU accesible solo para la Administración pública y los operadores de redes privadas, limitando su acceso ciudadano por 'seguridad nacional' y 'secreto comercial'."
       }
     },
 
@@ -162,6 +196,7 @@
         "description": "Círculos con el radio estimado de cada antena.",
         "source": "OpenCelliD (campo range)",
         "link": "https://opencellid.org/",
+        "license": "CC BY-SA 4.0",
         "fiability": {
           "level": 1,
           "note": "Es una estimación estadística del radio de las mediciones, no la cobertura real."
@@ -176,6 +211,7 @@
         "description": "Polígonos de cobertura 5G agregada de todas las operadoras con velocidad de conexión (campo VELOCIDAD). Solo visible con un zoom cercano",
         "source": "SETELECO, información de cobertura 5G 2024 (servicio ArcGIS)",
         "link": "https://avancedigital.mineco.gob.es/banda-ancha/cobertura/",
+        "license": "Art.8 ley 37/2007",
         "date": "2024",
         "fiability": {
           "level": 5,
@@ -191,6 +227,7 @@
         "description": "Polígonos de cobertura 4G agregada de todas las operadoras. Solo visible con un zoom cercano",
         "source": "SETELECO, información de cobertura 4G 2024 (servicio ArcGIS)",
         "link": "https://avancedigital.mineco.gob.es/banda-ancha/cobertura/",
+        "license": "Art.8 ley 37/2007",
         "date": "2024",
         "fiability": {
           "level": 5,
